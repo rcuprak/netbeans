@@ -83,6 +83,58 @@ is the proper place.
     <!-- ACTUAL CHANGES BEGIN HERE: -->
 
     <changes>
+        <change id="deprecate-experimental-settings">
+            <api name="general"/>
+            <summary>Make ProjectActionMappingProvider available for other modules.</summary>
+            <version major="2" minor="7"/>
+            <date day="1" month="1" year="2021"/>
+            <author login="lkishalmi"/>
+            <compatibility semantic="incompatible" deprecation="yes"/>
+            <description>
+                <p>
+                    Experimental settings, <code>openLazy</code> and <code>disableDiskCache</code> in
+                    <a href="@TOP@/org/netbeans/modules/gradle/spi/GradleSettings.html">GradleSettings</a>
+                    made deprecated and no longer affect the IDE behavior.
+                </p>
+            </description>
+        </change>
+        <change id="expose-project-action-mapping-provider">
+            <api name="general"/>
+            <summary>Make ProjectActionMappingProvider available for other modules.</summary>
+            <version major="2" minor="6"/>
+            <date day="15" month="10" year="2020"/>
+            <author login="lkishalmi"/>
+            <compatibility semantic="compatible"/>
+            <description>
+                <p>
+                    Made  <a href="@TOP@/org/netbeans/modules/gradle/spi/actions/ProjectActionMappingProvider.html">ProjectActionMappingProvider</a> available
+                    for other modules, so they either can provide an alternative implementation or most probably able to take a sneak peek on
+                    the current action configuration.
+                </p>
+                <p>
+                    In order to make other modules interpret the action mapping in context <a href="@TOP@/org/netbeans/modules/gradle/api/execute/RunUtils.html">RunUtils</a> got a new evaluateActionArgs
+                    utility method which can replace tokens provided in ActionMapping arguments.
+                </p>
+                <p>
+                    Finally to support this token replacement, <a href="@TOP@/org/netbeans/modules/gradle/spi/actions/ReplacementTokenProvider.html">ReplacementTokenProvider</a>
+                    got a new static method <code>replaceTokens</code>.
+                </p>
+            </description>
+        </change>
+        <change id="reusetabs">
+            <api name="general"/>
+            <summary>Default for reusing tabs</summary>
+            <version major="2" minor="5"/>
+            <date day="15" month="10" year="2020"/>
+            <author login="jtulach"/>
+            <compatibility semantic="compatible"/>
+            <description>
+                <p>
+                    Introducing <a href="@TOP@architecture-summary.html#group-branding">branding APIs</a>
+                    to configure default value for <b>reusing tabs</b> in Gradle projects.
+                </p>
+            </description>
+        </change>
         <change id="gradle-buildsrc-project">
             <api name="general"/>
             <summary>GradleFiles SPI has the methods to deal with the buildSrc project.</summary>
